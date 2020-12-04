@@ -1,0 +1,26 @@
+<!--homepkg/search/search.wxml-->
+<view>
+  <view class="search-box">
+    <van-search value="{{value}}" placeholder="请输入搜索关键词" shape="round" background="#c00000" bindchange="onChange"
+      focus="{{focus}}" />
+  </view>
+  <!-- 搜索建议列表 -->
+  <view class="sugg-list" wx:if="{{searchResults.length !== 0}}">
+    <view class="sugg-item" wx:for="{{searchResults}}" wx:key="item" bindtap="gotoDetail" data-goodsid="{{item.goods_id}}">
+      <view class="goods-name" >{{item.goods_name}}</view>
+      <van-icon name="arrow" size="16" />
+    </view>
+  </view>
+  <!-- 搜索历史 -->
+  <view class="history-box" wx:else>
+    <!-- 标题区域 -->
+    <view class="history-title">
+      <text>搜索历史</text>
+      <van-icon name="delete" size="17" bindtap="clean"/>
+    </view>
+    <!-- 列表区域 -->
+    <view class="history-list">
+      <van-tag wx:for="{{historyList}}" size="large" color="#eee" text-color="#000" wx:key="item" bindtap="goGoodsList" data-tagname="{{historyList[index]}}">{{item}}</van-tag>
+    </view>
+  </view>
+</view>

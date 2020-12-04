@@ -1,0 +1,54 @@
+.scroll-view-container {
+  display: flex;
+  .left-scroll-view {
+    width: 120px;
+    .left-scroll-view-item {
+      background-color: #f7f7f7;
+      line-height: 60px;
+      text-align: center;
+      font-size: 12px;
+      &.active {
+        background-color: #fff;
+        position: relative;
+        &::before{
+          content: '';
+          display: block;
+          width: 3px;
+          height: 30px;
+          background-color: #c00000;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
+
+.cate-lv2-title {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.cate-lv3-list {
+  display: flex;
+  flex-wrap: wrap;
+  .cate-lv3-item {
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    image {
+      width: 60px;
+      height: 60px;
+    }
+    text {
+      font-size: 12px;
+    }
+  }
+}

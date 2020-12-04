@@ -1,0 +1,20 @@
+<!--homepkg/goods_list/goods_list.wxml-->
+<wxs src="../../utils/num.wxs" module="tools"/>
+<view class="goods-list">
+  <view wx:for="{{goodsList}}" wx:key="item" bindtap="gotoDetail" data-goodsId="{{item.goods_id}}">
+    <view class="goods-item" >
+      <!-- 左侧盒子 -->
+      <view class="goods-item-left">
+        <image src="{{item.goods_small_logo || defultPic}}" class="goods-pic"></image>
+      </view>
+      <!-- 右侧盒子 -->
+      <view class="goods-item-right">
+        <!-- 商品名字 -->
+        <view class="goods-name">{{item.goods_name}}</view>
+        <view class="goods-info-box">
+          <view class="goods-price">￥{{tools.getNum(item.goods_price)}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

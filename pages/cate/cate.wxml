@@ -1,0 +1,29 @@
+<!--pages/cate/cate.wxml-->
+<my-search bindtap="gotoSearch"></my-search>
+
+<view class="scroll-view-container">
+  <!-- 左侧滑动区域 -->
+  <scroll-view class="left-scroll-view" scroll-y="true" style="height:{{wh}}px">
+    <block wx:for="{{cateList}}" wx:key="item">
+      <view data-index="{{index}}" class="['left-scroll-view-item', {{index===active?'active':''}}]"
+        bindtap="activeChanged">{{item.cat_name}}</view>
+    </block>
+  </scroll-view>
+  <!-- 右侧滑动区域 -->
+  <scroll-view scroll-y="true" style="height:{{wh}}px" scroll-top="{{scrollTop}}">
+    <view class="cate-lv2" wx:for="{{cateLevel2}}" wx:key="item">
+      <!-- 二级分类标题 -->
+      <view class="cate-lv2-title">/{{item.cat_name}}/</view>
+      <!-- 三级分类 -->
+      <view class="cate-lv3-list">
+        <view class="cate-lv3-item" wx:for="{{item.children}}" wx:for-item="item1" wx:key="item1"
+          bindtap="gotoGoodsList" data-cid="{{item1.cat_id}}">
+          <!-- 三级分类图片 -->
+          <image src="{{item1.cat_icon}}"></image>
+          <!-- 三级分类文本 -->
+          <text>{{item1.cat_name}}</text>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

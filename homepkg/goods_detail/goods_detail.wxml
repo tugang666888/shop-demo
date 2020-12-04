@@ -1,0 +1,40 @@
+<!--homepkg/goods_detail/goods_detail.wxml-->
+<view wx:if="{{goods_info.goods_name}}" class="goods-detail-container">
+  <!-- 轮播图区域 -->
+  <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true">
+    <swiper-item wx:for="{{goods_info.pics}}" wx:key="item" wx:for-index="index" data-current="{{index}}"
+      bindtap="perview">
+      <image src="{{item.pics_big}}"></image>
+    </swiper-item>
+  </swiper>
+
+  <!-- 商品信息区域 -->
+  <view class="goods-info-box">
+    <!-- 商品价格 -->
+    <view class="price">￥{{goods_info.goods_price}}</view>
+    <!-- 商品信息主题区域 -->
+    <view class="goods-info-body">
+      <!-- 商品名字 -->
+      <view class="goods-name">{{goods_info.goods_name}}</view>
+      <!-- 收藏 -->
+      <view class="favi">
+        <van-icon name="star-o" size="18" color="gray" />
+        <text>收藏</text>
+      </view>
+    </view>
+    <!-- 运费 -->
+    <view class="yf">快递：免运费</view>
+  </view>
+
+  <rich-text nodes="{{goods_info.goods_introduce}}"></rich-text>
+
+  <!-- 商品导航组件区域 -->
+  <view class="goods-nav">
+    <van-goods-action>
+      <van-goods-action-icon icon="shop-o" text="店铺" data-text="店铺" bind:click="onClickIcon" />
+      <van-goods-action-icon icon="cart-o" text="购物车" data-text="购物车" info="{{info}}" bind:click="onClickIcon" />
+      <van-goods-action-button text="加入购物车" data-text="加入购物车" type="warning" bind:click="onClickButton" />
+      <van-goods-action-button text="立即购买" data-text="立即购买" bind:click="onClickButton" />
+    </van-goods-action>
+  </view>
+</view>

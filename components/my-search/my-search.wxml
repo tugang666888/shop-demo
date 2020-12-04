@@ -1,0 +1,9 @@
+<!--components/my-search/my-search.wxml-->
+<!-- <view class="my-search-container" style="background:{{bgcolor}}">
+  <view class="my-search-box" style="border-radius:{{border}}px"> -->
+<view class="my-search-container" bindtap="gotoSearch">
+  <view class="my-search-box">
+    <van-icon name="search" size="17"></van-icon>
+    <text class="placeholder">搜索</text>
+  </view>
+</view>
